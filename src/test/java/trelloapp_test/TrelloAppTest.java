@@ -1,4 +1,4 @@
-package com.example.framework.trello;
+package trelloapp_test;
 
 import java.io.IOException;
 

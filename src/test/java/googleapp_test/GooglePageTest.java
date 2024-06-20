@@ -1,4 +1,4 @@
-package com.example.framework.google;
+package googleapp_test;
 
 import java.io.IOException;
 

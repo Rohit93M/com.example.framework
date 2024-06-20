@@ -1,4 +1,4 @@
-package com.example.framework.webform;
+package webform_test;
 
 import java.io.IOException;
 import java.time.Duration;

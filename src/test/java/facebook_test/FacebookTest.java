@@ -1,4 +1,4 @@
-package com.example.framework.facebook;
+package facebook_test;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
