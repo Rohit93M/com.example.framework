@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" parallel="tests" name="Test01(failed)">
+    <parameter name="firstName" value="Rohit"/>
+    <parameter name="lastName" value="RohitKS"/>
+    <parameter name="mobileOrEmail" value="rohit93m@gmail.com"/>
+    <parameter name="password" value="Rohit@1993"/>
+    <parameter name="month" value="Jan"/>
+    <parameter name="gender" value="male"/>
+    <parameter name="year" value="1993"/>
+    <parameter name="browser" value="chrome"/>
+    <parameter name="day" value="4"/>
+    <parameter name="url" value="https://www.facebook.com/signup/"/>
+    <classes>
+      <class name="com.framework.facebook.FacebookTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="writeAScriptToEnterDataIntoFacebookLoginPage"/>
+        </methods>
+      </class> <!-- com.framework.facebook.FacebookTest -->
+    </classes>
+  </test> <!-- Test01(failed) -->
+</suite> <!-- Failed suite [Suite] -->
