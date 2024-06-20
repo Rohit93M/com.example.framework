@@ -1,6 +1,5 @@
 package pomrepo;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -66,43 +65,5 @@ public class TrelloTopicPage {
 
     public WebElement getDeleteOption() {
         return deleteOption;
-    }
-
-    public WebElement getAddListButton() {
-        return addListButton;
-    }
-
-    public WebElement getListTitleTextField() {
-        return listTitleTextField;
-    }
-
-    public WebElement getSaveListButton() {
-        return saveListButton;
-    }
-
-    public WebElement getAddCardButton(String listName) {
-        return driver.findElement(By.xpath("//h2[text()='" + listName + "']/following-sibling::div//span[text()='Add a card']"));
-    }
-
-    public WebElement getCardTitleTextField() {
-        return cardTitleTextField;
-    }
-
-    public WebElement getSaveCardButton() {
-        return saveCardButton;
-    }
-
-    public WebElement getCard(String cardTitle) {
-        return driver.findElement(By.xpath("//span[text()='" + cardTitle + "']"));
-    }
-
-    public WebElement getList(String listName) {
-        return driver.findElement(By.xpath("//h2[text()='" + listName + "']"));
-    }
-
-    public void addCardToList(String listName, String cardTitle) {
-        getAddCardButton(listName).click();
-        getCardTitleTextField().sendKeys(cardTitle);
-        getSaveCardButton().click();
     }
 }
