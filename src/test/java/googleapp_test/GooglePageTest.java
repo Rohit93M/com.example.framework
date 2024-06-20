@@ -5,8 +5,8 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.example.genericutility.BaseClass;
-import com.example.pomrepo.GooglePage;
+import genericutility.BaseClass;
+import pomrepo.GooglePage;
 
 public class GooglePageTest extends BaseClass {
 

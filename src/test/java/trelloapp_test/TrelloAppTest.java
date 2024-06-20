@@ -7,13 +7,13 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.example.genericutility.BaseClass;
-import com.example.genericutility.ListenersImplementation;
-import com.example.pomrepo.TrelloBoardsPage;
-import com.example.pomrepo.TrelloLoginPage;
-import com.example.pomrepo.TrelloLogoutPage;
-import com.example.pomrepo.TrelloTopicPage;
-import com.example.pomrepo.TrelloWelcomePage;
+import genericutility.BaseClass;
+import genericutility.ListenersImplementation;
+import pomrepo.TrelloBoardsPage;
+import pomrepo.TrelloLoginPage;
+import pomrepo.TrelloLogoutPage;
+import pomrepo.TrelloTopicPage;
+import pomrepo.TrelloWelcomePage;
 
 @Listeners(ListenersImplementation.class)
 public class TrelloAppTest extends BaseClass {
@@ -103,5 +103,4 @@ public class TrelloAppTest extends BaseClass {
             e.printStackTrace();
         }
     }
-
 }

@@ -12,8 +12,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import com.example.genericutility.BaseClass;
-import com.example.pomrepo.RegistrationFormExample;
+import genericutility.BaseClass;
+import pomrepo.RegistrationFormExample;
 
 public class WebFormTest extends BaseClass {
 

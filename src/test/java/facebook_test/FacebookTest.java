@@ -14,10 +14,10 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
-import com.example.genericutility.BaseClass;
-import com.example.pomrepo.FacebookLoginPage;
-import com.example.pomrepo.FacebookSignUpPage;
-import com.example.pomrepo.FbForgotPwdPage;
+import genericutility.BaseClass;
+import pomrepo.FacebookLoginPage;
+import pomrepo.FacebookSignUpPage;
+import pomrepo.FbForgotPwdPage;
 
 public class FacebookTest extends BaseClass {
 
