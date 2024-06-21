@@ -1,7 +1,7 @@
 # Trello Web App Automation Testing Framework
 
 ## Project Overview
-This project is a Java Maven TestNG framework designed for practicing automation testing using the Trello web application. Trello is a project management tool that helps teams organize tasks and projects using boards, lists, and cards.
+This project is a Java Selenium TestNG framework designed for practicing automation testing using the Trello web application. Trello is a project management tool that helps teams organize tasks and projects using boards, lists, and cards.
 
 ## Key Features
 - *Board Customization Testing*: Ensure end-to-end board creation and deletion is working fine.
