@@ -33,6 +33,12 @@ public class FacebookTest extends BaseClass {
 			webdriverUtils.waitForATitle(driver, "Facebook – log in or sign up");
 			String actualTitle = driver.getTitle();
 			Assert.assertEquals(actualTitle, "Facebook – log in or sign up");
+
+			/*
+			 * CAUTION : For successful running you have to enter valid credentials for login. 
+			 * The credentials taken to login from property file won't work
+			 * But it will work for sign up as given in the next test method		
+			 */
 			
 			Assert.assertTrue(loginPage.getUsernameTF().isDisplayed(), "Username textfield is not displayed");
 			loginPage.getUsernameTF().sendKeys(fileUtils.getPropertyKeyValue("username"));
@@ -62,7 +68,9 @@ public class FacebookTest extends BaseClass {
 	
 	@Test(priority = 0, groups = { "smoke", "functional" }, invocationCount = 2)
 	public void checkWhetherTheUserIsAbleToRegisterInFacebookSignUpPage() {
-//		Use property file
+		
+//		Use property file.
+		
 		try {
 
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -106,7 +114,7 @@ public class FacebookTest extends BaseClass {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 			FacebookLoginPage loginPage = new FacebookLoginPage(driver);
 
-			driver.get("https://www.facebook.com/");
+			driver.get(fileUtils.getPropertyKeyValue("url"));
 
 			wait.until(ExpectedConditions.titleIs("Facebook – log in or sign up"));
 			Assert.assertEquals(driver.getTitle(), "Facebook – log in or sign up");
@@ -133,7 +141,7 @@ public class FacebookTest extends BaseClass {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 			FacebookLoginPage loginPage = new FacebookLoginPage(driver);
 
-			driver.get("https://www.facebook.com/");
+			driver.get(fileUtils.getPropertyKeyValue("url"));
 
 			wait.until(ExpectedConditions.titleIs("Facebook – log in or sign up"));
 			Assert.assertEquals(driver.getTitle(), "Facebook – log in or sign up");
@@ -169,7 +177,12 @@ public class FacebookTest extends BaseClass {
 
 			String pageTitle = driver.getTitle();
 			Assert.assertTrue(pageTitle.contains("Forgotten Password | Can't Log In"), "Page title is incorrect");
-
+			
+			/*
+			 * CAUTION : For successful running you have to enter valid credentials for login. 
+			 * The credentials taken to login from property file won't work		
+			 */
+			
 			actions.sendKeys(driver.switchTo().activeElement(), fileUtils.getPropertyKeyValue("username"))
 					.sendKeys(Keys.ENTER).perform();
 

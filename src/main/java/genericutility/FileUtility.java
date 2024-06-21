@@ -8,7 +8,7 @@ import java.util.Properties;
 public class FileUtility {
 	
 public String getPropertyKeyValue (String key) throws IOException {
-File file = new File("./src/test/resources/trellodata.properties");
+File file = new File("./src/test/resources/webformdata.properties");
 FileInputStream fis = new FileInputStream(file);
 Properties pobj = new Properties();
 pobj.load(fis);

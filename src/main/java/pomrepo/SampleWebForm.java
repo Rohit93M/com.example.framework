@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class RegistrationFormExample {
+public class SampleWebForm {
 
-    private WebDriver driver;
+    WebDriver driver;
 
-    public RegistrationFormExample(WebDriver driver) {
+    public SampleWebForm(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
