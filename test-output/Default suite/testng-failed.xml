@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.example.framework.trello.TrelloAppTest">
+      <class name="trelloapp.TrelloAppTest">
         <methods>
           <include name="tearDown"/>
-          <include name="checkWhetherTheEndUserIsAbleToCreateAndDeleteTheBoard"/>
           <include name="setUp"/>
+          <include name="checkWhetherTheEndUserIsAbleToCreateABoard"/>
         </methods>
-      </class> <!-- com.example.framework.trello.TrelloAppTest -->
+      </class> <!-- trelloapp.TrelloAppTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,4 +1,4 @@
-package form;
+package sampleform;
 
 import java.io.IOException;
 

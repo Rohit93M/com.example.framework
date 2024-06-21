@@ -2,27 +2,30 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-06-20T21:41:11 IST" name="Default suite" finished-at="2024-06-20T21:42:38 IST" duration-ms="87076">
+  <suite started-at="2024-06-21T08:51:38 IST" name="Default suite" finished-at="2024-06-21T08:52:23 IST" duration-ms="45181">
     <groups>
       <group name="functional">
-        <method signature="TrelloAppTest.checkWhetherTheEndUserIsAbleToCreateABoard()[pri:1, instance:trelloapp_test.TrelloAppTest@443118b0]" name="checkWhetherTheEndUserIsAbleToCreateABoard" class="trelloapp_test.TrelloAppTest"/>
+        <method signature="TrelloAppTest.checkWhetherTheEndUserIsAbleToCreateABoard()[pri:1, instance:trelloapp.TrelloAppTest@443118b0]" name="checkWhetherTheEndUserIsAbleToCreateABoard" class="trelloapp.TrelloAppTest"/>
       </group> <!-- functional -->
+      <group name="integration">
+        <method signature="TrelloAppTest.checkWhetherTheEndUserIsAbleToCreateABoard()[pri:1, instance:trelloapp.TrelloAppTest@443118b0]" name="checkWhetherTheEndUserIsAbleToCreateABoard" class="trelloapp.TrelloAppTest"/>
+      </group> <!-- integration -->
     </groups>
-    <test started-at="2024-06-20T21:41:11 IST" name="Default test" finished-at="2024-06-20T21:42:38 IST" duration-ms="87076">
-      <class name="trelloapp_test.TrelloAppTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:trelloapp_test.TrelloAppTest@443118b0]" started-at="2024-06-20T21:41:11 IST" name="setUp" finished-at="2024-06-20T21:41:31 IST" duration-ms="19941" status="PASS">
+    <test started-at="2024-06-21T08:51:38 IST" name="Default test" finished-at="2024-06-21T08:52:23 IST" duration-ms="45181">
+      <class name="trelloapp.TrelloAppTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:trelloapp.TrelloAppTest@443118b0]" started-at="2024-06-21T08:51:38 IST" name="setUp" finished-at="2024-06-21T08:51:51 IST" duration-ms="13311" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="checkWhetherTheEndUserIsAbleToCreateABoard()[pri:1, instance:trelloapp_test.TrelloAppTest@443118b0]" started-at="2024-06-20T21:41:31 IST" name="checkWhetherTheEndUserIsAbleToCreateABoard" finished-at="2024-06-20T21:42:36 IST" duration-ms="64899" status="PASS">
+        <test-method signature="checkWhetherTheEndUserIsAbleToCreateABoard()[pri:1, instance:trelloapp.TrelloAppTest@443118b0]" started-at="2024-06-21T08:51:51 IST" name="checkWhetherTheEndUserIsAbleToCreateABoard" finished-at="2024-06-21T08:52:19 IST" duration-ms="28025" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkWhetherTheEndUserIsAbleToCreateABoard -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:trelloapp_test.TrelloAppTest@443118b0]" started-at="2024-06-20T21:42:36 IST" name="tearDown" finished-at="2024-06-20T21:42:38 IST" duration-ms="1906" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:trelloapp.TrelloAppTest@443118b0]" started-at="2024-06-21T08:52:20 IST" name="tearDown" finished-at="2024-06-21T08:52:23 IST" duration-ms="3437" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- trelloapp_test.TrelloAppTest -->
+      </class> <!-- trelloapp.TrelloAppTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

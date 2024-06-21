@@ -14,6 +14,7 @@ import pomrepo.TrelloLoginPage;
 import pomrepo.TrelloLogoutPage;
 import pomrepo.TrelloTopicPage;
 import pomrepo.TrelloWelcomePage;
+import pomrepo.TrelloWorkspacePage;
 
 @Listeners(ListenersImplementation.class)
 public class TrelloAppTest extends BaseClass {
@@ -57,14 +58,16 @@ public class TrelloAppTest extends BaseClass {
 		}
 	}
 
-	@Test(priority = 1, groups = {"functional", "integration"} )
-	public void checkWhetherTheEndUserIsAbleToCreateABoard() throws IOException {
+	@Test(priority = 1, groups = { "functional", "integration" })
+	public void createABoardAndVerifyItOnTheDashboard() throws IOException {
 
 		try {
 
 			TrelloWelcomePage welcomePage = new TrelloWelcomePage(driver);
 			TrelloLoginPage loginPage = new TrelloLoginPage(driver);
 			TrelloBoardsPage boardsPage = new TrelloBoardsPage(driver);
+			TrelloTopicPage topicPage = new TrelloTopicPage(driver);
+			TrelloWorkspacePage workspacePage = new TrelloWorkspacePage(driver);
 
 			webdriverUtils.waitForATitle(driver, "Manage Your Team’s Projects From Anywhere | Trello");
 			Assert.assertEquals(driver.getTitle(), "Manage Your Team’s Projects From Anywhere | Trello",
@@ -104,6 +107,16 @@ public class TrelloAppTest extends BaseClass {
 
 			webdriverUtils.waitForATitle(driver, "Selenium | Trello");
 			Assert.assertEquals(driver.getTitle(), "Selenium | Trello", "Topic page title does not match");
+
+			webdriverUtils.waitTillElementToBeClickable(driver, topicPage.getBoardsOption());
+			topicPage.getBoardsOption().click();
+
+			webdriverUtils.waitForTitleContains(driver, "Trello Workspace (userworkspace");
+			Assert.assertTrue(driver.getTitle().contains("Trello Workspace (userworkspace"), "Workspace title does not match");
+
+			webdriverUtils.waitTillElementToBeVisible(driver, workspacePage.getCreatedBoardName());
+			Assert.assertNotNull(workspacePage.getCreatedBoardName(),
+					"The new board should appear on the dashboard with the correct name.");
 
 		} catch (Exception e) {
 			e.printStackTrace();

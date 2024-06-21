@@ -22,6 +22,9 @@ public class TrelloBoardsPage {
 
 	@FindBy(xpath = "//button[text()='Create']")
 	WebElement createOption;
+	
+	@FindBy(xpath = "//div[@title='Selenium']")
+	WebElement createdBoard ;
 
 	@FindBy(xpath = "//div[@data-testid='header-member-menu-avatar']//span")
 	WebElement menuIcon;
@@ -39,6 +42,10 @@ public class TrelloBoardsPage {
 
 	public WebElement getCreateOption() {
 		return createOption;
+	}
+	
+	public WebElement getCreatedBoardName() {
+		return createdBoard;
 	}
 
 	public WebElement getMenuIcon() {

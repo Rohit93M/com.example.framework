@@ -28,6 +28,9 @@ public class TrelloTopicPage {
 
 	@FindBy(xpath = "//button[normalize-space()='Delete']")
 	WebElement deleteOption;
+	
+	@FindBy(xpath = "//p[text()='Boards']")
+	WebElement boardsOption;
 
 	@FindBy(xpath = "(//textarea[@data-testid='list-name-textarea'])[1]")
 	WebElement listNameTextarea1;
@@ -101,6 +104,10 @@ public class TrelloTopicPage {
 
 	public WebElement getDeleteOption() {
 		return deleteOption;
+	}
+	
+	public WebElement getBoardsOption() {
+		return boardsOption;
 	}
 
 	public WebElement getListNameTextarea1() {
