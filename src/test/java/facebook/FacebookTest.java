@@ -111,12 +111,11 @@ public class FacebookTest extends BaseClass {
 		try {
 
 			Actions actions = new Actions(driver);
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 			FacebookLoginPage loginPage = new FacebookLoginPage(driver);
 
 			driver.get(fileUtils.getPropertyKeyValue("url"));
 
-			wait.until(ExpectedConditions.titleIs("Facebook – log in or sign up"));
+			webdriverUtils.waitForATitle(driver, "Facebook – log in or sign up");
 			Assert.assertEquals(driver.getTitle(), "Facebook – log in or sign up");
 
 			actions.sendKeys(driver.switchTo().activeElement()).sendKeys("wrong_email@gmail.com").sendKeys(Keys.TAB)
@@ -138,12 +137,12 @@ public class FacebookTest extends BaseClass {
 		try {
 
 			Actions actions = new Actions(driver);
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
 			FacebookLoginPage loginPage = new FacebookLoginPage(driver);
 
 			driver.get(fileUtils.getPropertyKeyValue("url"));
 
-			wait.until(ExpectedConditions.titleIs("Facebook – log in or sign up"));
+			webdriverUtils.waitForATitle(driver, "Facebook – log in or sign up");
 			Assert.assertEquals(driver.getTitle(), "Facebook – log in or sign up");
 
 			actions.click(loginPage.getSubmitButton()).perform();
@@ -173,7 +172,7 @@ public class FacebookTest extends BaseClass {
 			new FbForgotPwdPage(driver);
 			new FacebookLoginPage(driver);
 
-			driver.get("https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0");
+			driver.get(fileUtils.getPropertyKeyValue("forgotpwd_url"));
 
 			String pageTitle = driver.getTitle();
 			Assert.assertTrue(pageTitle.contains("Forgotten Password | Can't Log In"), "Page title is incorrect");
@@ -186,8 +185,8 @@ public class FacebookTest extends BaseClass {
 			actions.sendKeys(driver.switchTo().activeElement(), fileUtils.getPropertyKeyValue("username"))
 					.sendKeys(Keys.ENTER).perform();
 
-			String PageTitle = driver.getTitle();
-			Assert.assertTrue(PageTitle.contains("Log in to"), "Page title is incorrect");
+			pageTitle = driver.getTitle();
+			Assert.assertTrue(pageTitle.contains("Log in to"), "Page title is incorrect");
 
 			actions.sendKeys(driver.switchTo().activeElement()).sendKeys(fileUtils.getPropertyKeyValue("password"))
 					.sendKeys(Keys.ENTER).perform();
