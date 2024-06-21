@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class TrelloWelcomePage {
+	
 	WebDriver driver;
 	
 	public TrelloWelcomePage(WebDriver driver) {
@@ -14,7 +15,7 @@ public class TrelloWelcomePage {
 	}
 	
     @FindBy(xpath = "//div[contains(@class,'Buttonsstyles')]/a[text()= 'Log in']")
-       private WebElement loginLink;
+    private WebElement loginLink;
 
 	public WebElement getLoginLink() {
 		return loginLink;

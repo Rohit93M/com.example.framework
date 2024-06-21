@@ -17,10 +17,10 @@ public class GooglePage {
 	}
 
 	@FindBy(name = "q")
-	WebElement searchTF;
+	private WebElement searchTF;
 	
 	@FindBy(name = "btnK")
-	WebElement searchButton;
+	private WebElement searchButton;
 
 	public void search(String text) {
 		searchTF.sendKeys(text);

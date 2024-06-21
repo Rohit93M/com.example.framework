@@ -7,97 +7,96 @@ import org.openqa.selenium.support.PageFactory;
 
 public class FacebookSignUpPage {
 
-	WebDriver driver;
+    WebDriver driver;
 
-	public FacebookSignUpPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
+    public FacebookSignUpPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
 
-	@FindBy(name = "reg_email__")
-	WebElement mobileOrEmailInput;
+    @FindBy(name = "reg_email__")
+    private WebElement mobileOrEmailInput;
 
-	public void setMobileOrEmail(String mobileOrEmail) {
-		mobileOrEmailInput.sendKeys(mobileOrEmail);
-	}
+    public void setMobileOrEmail(String mobileOrEmail) {
+        mobileOrEmailInput.sendKeys(mobileOrEmail);
+    }
 
-	@FindBy(name = "reg_email_confirmation__")
-	WebElement mobileOrEmailConfirmInput;
+    @FindBy(name = "reg_email_confirmation__")
+    private WebElement mobileOrEmailConfirmInput;
 
-	public void setMobileOrEmailConfirmInput(String mobileOrEmail) {
-		mobileOrEmailConfirmInput.sendKeys(mobileOrEmail);
-	}
+    public void setMobileOrEmailConfirmInput(String mobileOrEmail) {
+        mobileOrEmailConfirmInput.sendKeys(mobileOrEmail);
+    }
 
-	public WebElement getMobileOrEmailConfirmInput() {
-		return mobileOrEmailConfirmInput;
-	}
+    public WebElement getMobileOrEmailConfirmInput() {
+        return mobileOrEmailConfirmInput;
+    }
 
-	@FindBy(name = "reg_passwd__")
-	WebElement passwordInput;
+    @FindBy(name = "reg_passwd__")
+    private WebElement passwordInput;
 
-	public void setPassword(String password) {
-		passwordInput.sendKeys(password);
-	}
+    public void setPassword(String password) {
+        passwordInput.sendKeys(password);
+    }
 
-	@FindBy(name = "firstname")
-	WebElement firstNameInput;
+    @FindBy(name = "firstname")
+    private WebElement firstNameInput;
 
-	public void setFirstName(String firstName) {
-		firstNameInput.sendKeys(firstName);
-	}
+    public void setFirstName(String firstName) {
+        firstNameInput.sendKeys(firstName);
+    }
 
-	@FindBy(name = "lastname")
-	WebElement lastNameInput;
+    @FindBy(name = "lastname")
+    private WebElement lastNameInput;
 
-	public void setLastName(String lastName) {
-		lastNameInput.sendKeys(lastName);
-	}
+    public void setLastName(String lastName) {
+        lastNameInput.sendKeys(lastName);
+    }
 
-	@FindBy(name = "birthday_day")
-	WebElement birthDay;
+    @FindBy(name = "birthday_day")
+    private WebElement birthDay;
 
-	public void setBirthDay(String day) {
-		birthDay.sendKeys(day);
-	}
+    public void setBirthDay(String day) {
+        birthDay.sendKeys(day);
+    }
 
-	@FindBy(name = "birthday_month")
-	WebElement birthMonth;
+    @FindBy(name = "birthday_month")
+    private WebElement birthMonth;
 
-	public void setBirthMonth(String month) {
-		birthMonth.sendKeys(month);
-	}
+    public void setBirthMonth(String month) {
+        birthMonth.sendKeys(month);
+    }
 
-	@FindBy(name = "birthday_year")
-	WebElement birthYear;
+    @FindBy(name = "birthday_year")
+    private WebElement birthYear;
 
-	public void setBirthYear(String year) {
-		birthYear.sendKeys(year);
-	}
+    public void setBirthYear(String year) {
+        birthYear.sendKeys(year);
+    }
 
-	@FindBy(xpath = "//label[text()='Female']/following-sibling::input")
-	WebElement femaleRadio;
+    @FindBy(xpath = "//label[text()='Female']/following-sibling::input")
+    private WebElement femaleRadio;
 
-	@FindBy(xpath = "//label[text()='Male']/following-sibling::input")
-	WebElement maleRadio;
+    @FindBy(xpath = "//label[text()='Male']/following-sibling::input")
+    private WebElement maleRadio;
 
-	@FindBy(xpath = "//label[text()='Custom']/following-sibling::input")
-	WebElement customRadio;
+    @FindBy(xpath = "//label[text()='Custom']/following-sibling::input")
+    private WebElement customRadio;
 
-	public void setGender(String gender) {
-		if (gender.equalsIgnoreCase("female")) {
-			femaleRadio.click();
-		} else if (gender.equalsIgnoreCase("male")) {
-			maleRadio.click();
-		} else if (gender.equalsIgnoreCase("custom")) {
-			customRadio.click();
-		}
-	}
+    public void setGender(String gender) {
+        if (gender.equalsIgnoreCase("female")) {
+            femaleRadio.click();
+        } else if (gender.equalsIgnoreCase("male")) {
+            maleRadio.click();
+        } else if (gender.equalsIgnoreCase("custom")) {
+            customRadio.click();
+        }
+    }
 
-	@FindBy(name = "websubmit")
-	WebElement signUpButton;
+    @FindBy(name = "websubmit")
+    private WebElement signUpButton;
 
-	public void clickSignUp() {
-		signUpButton.click();
-	}
-
+    public void clickSignUp() {
+        signUpButton.click();
+    }
 }

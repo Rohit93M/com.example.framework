@@ -7,88 +7,87 @@ import org.openqa.selenium.support.PageFactory;
 
 public class RegistrationFormExample {
 
-	WebDriver driver;
+    private WebDriver driver;
 
-	public RegistrationFormExample(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
+    public RegistrationFormExample(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
 
-	@FindBy(name = "userid")
-	WebElement userID;
+    @FindBy(name = "userid")
+    private WebElement userID;
 
-	public WebElement getUserID() {
-		return userID;
-	}
+    @FindBy(name = "passid")
+    private WebElement password;
 
-	@FindBy(name = "passid")
-	WebElement password;
+    @FindBy(name = "username")
+    private WebElement name;
 
-	public WebElement getPassword() {
-		return password;
-	}
+    @FindBy(name = "address")
+    private WebElement address;
 
-	@FindBy(name = "username")
-	WebElement name;
+    @FindBy(name = "country")
+    private WebElement country;
 
-	public WebElement getName() {
-		return name;
-	}
+    @FindBy(name = "zip")
+    private WebElement zipCode;
 
-	@FindBy(name = "address")
-	WebElement address;
+    @FindBy(name = "email")
+    private WebElement email;
 
-	public WebElement getAddress() {
-		return address;
-	}
+    @FindBy(name = "msex")
+    private WebElement sex;
 
-	@FindBy(name = "country")
-	WebElement country;
+    @FindBy(name = "en")
+    private WebElement language;
 
-	public WebElement getCountry() {
-		return country;
-	}
+    @FindBy(id = "desc")
+    private WebElement about;
 
-	@FindBy(name = "zip")
-	WebElement zipCode;
+    @FindBy(name = "submit")
+    private WebElement submit;
 
-	public WebElement getZipCode() {
-		return zipCode;
-	}
+    public WebElement getUserID() {
+        return userID;
+    }
 
-	@FindBy(name = "email")
-	WebElement email;
+    public WebElement getPassword() {
+        return password;
+    }
 
-	public WebElement getEmail() {
-		return email;
-	}
+    public WebElement getName() {
+        return name;
+    }
 
-	@FindBy(name = "msex")
-	WebElement sex;
+    public WebElement getAddress() {
+        return address;
+    }
 
-	public WebElement getSex() {
-		return sex;
-	}
+    public WebElement getCountry() {
+        return country;
+    }
 
-	@FindBy(name = "en")
-	WebElement language;
+    public WebElement getZipCode() {
+        return zipCode;
+    }
 
-	public WebElement getLanguage() {
-		return language;
-	}
+    public WebElement getEmail() {
+        return email;
+    }
 
-	@FindBy(id = "desc")
-	WebElement about;
+    public WebElement getSex() {
+        return sex;
+    }
 
-	public WebElement getAbout() {
-		return about;
-	}
+    public WebElement getLanguage() {
+        return language;
+    }
 
-	@FindBy(name = "submit")
-	WebElement submit;
+    public WebElement getAbout() {
+        return about;
+    }
 
-	public WebElement getSubmit() {
-		return submit;
-	}
-
+    public WebElement getSubmit() {
+        return submit;
+    }
 }
