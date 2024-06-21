@@ -14,7 +14,7 @@ public class TrelloWorkspacePage {
 	}
 	
 	@FindBy(xpath = "//div[@title='Selenium']")
-	WebElement createdBoard ;
+	private WebElement createdBoard ;
 	
 	public WebElement getCreatedBoardName() {
 		return createdBoard;

@@ -7,53 +7,53 @@ import org.openqa.selenium.support.PageFactory;
 
 public class TrelloBoardsPage {
 
-	WebDriver driver;
+    WebDriver driver;
 
-	public TrelloBoardsPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
+    public TrelloBoardsPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
 
-	@FindBy(xpath = "//span[text()='Create new board']")
-	WebElement createNewBoardOption;
+    @FindBy(xpath = "//span[text()='Create new board']")
+    private WebElement createNewBoardOption;
 
-	@FindBy(xpath = "//input[@type='text']")
-	WebElement boardTitleTextField;
+    @FindBy(xpath = "//input[@type='text']")
+    private WebElement boardTitleTextField;
 
-	@FindBy(xpath = "//button[text()='Create']")
-	WebElement createOption;
-	
-	@FindBy(xpath = "//div[@title='Selenium']")
-	WebElement createdBoard ;
+    @FindBy(xpath = "//button[text()='Create']")
+    private WebElement createOption;
+    
+    @FindBy(xpath = "//div[@title='Selenium']")
+    private WebElement createdBoard;
 
-	@FindBy(xpath = "//div[@data-testid='header-member-menu-avatar']//span")
-	WebElement menuIcon;
+    @FindBy(xpath = "//div[@data-testid='header-member-menu-avatar']//span")
+    private WebElement menuIcon;
 
-	@FindBy(xpath = "//span[text()='Log out']")
-	WebElement logoutLink;
+    @FindBy(xpath = "//span[text()='Log out']")
+    private WebElement logoutLink;
 
-	public WebElement getCreateNewBoardOption() {
-		return createNewBoardOption;
-	}
+    public WebElement getCreateNewBoardOption() {
+        return createNewBoardOption;
+    }
 
-	public WebElement getBoardTitleTextField() {
-		return boardTitleTextField;
-	}
+    public WebElement getBoardTitleTextField() {
+        return boardTitleTextField;
+    }
 
-	public WebElement getCreateOption() {
-		return createOption;
-	}
-	
-	public WebElement getCreatedBoardName() {
-		return createdBoard;
-	}
+    public WebElement getCreateOption() {
+        return createOption;
+    }
+    
+    public WebElement getCreatedBoardName() {
+        return createdBoard;
+    }
 
-	public WebElement getMenuIcon() {
-		return menuIcon;
-	}
+    public WebElement getMenuIcon() {
+        return menuIcon;
+    }
 
-	public WebElement getLogoutLink() {
-		return logoutLink;
-	}
+    public WebElement getLogoutLink() {
+        return logoutLink;
+    }
 
 }

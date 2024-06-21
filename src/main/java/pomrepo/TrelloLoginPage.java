@@ -7,38 +7,38 @@ import org.openqa.selenium.support.PageFactory;
 
 public class TrelloLoginPage {
 
-WebDriver driver;
+    private WebDriver driver;
 
-public TrelloLoginPage(WebDriver driver) {
-this.driver = driver;
-PageFactory.initElements(driver, this);
-}
+    public TrelloLoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
 
-public WebElement getUsernameTextField() {
-return usernameTextField;
-}
+    @FindBy(id = "username")
+    private WebElement usernameTextField;
 
-public WebElement getContinueButton() { 
-return continueButton;
-}
+    @FindBy(id = "login-submit")
+    private WebElement continueButton;
 
-public WebElement getPasswordTextField() { 
-return passwordTextField;
-}
+    @FindBy(id = "password")
+    private WebElement passwordTextField;
 
-public WebElement getLoginButton() { 
-return loginButton;
-}
+    @FindBy(id = "login-submit")
+    private WebElement loginButton;
 
-@FindBy(id = "username")
-private WebElement usernameTextField;
-@FindBy(id = "login-submit")
-private WebElement continueButton;
+    public WebElement getUsernameTextField() {
+        return usernameTextField;
+    }
 
-@FindBy(id = "password")
-private WebElement passwordTextField;
+    public WebElement getContinueButton() {
+        return continueButton;
+    }
 
-@FindBy(id = "login-submit")
-private WebElement loginButton;
+    public WebElement getPasswordTextField() {
+        return passwordTextField;
+    }
 
+    public WebElement getLoginButton() {
+        return loginButton;
+    }
 }
