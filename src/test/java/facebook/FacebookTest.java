@@ -2,14 +2,9 @@ package facebook;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
-import java.time.Duration;
-
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
@@ -35,9 +30,9 @@ public class FacebookTest extends BaseClass {
 			Assert.assertEquals(actualTitle, "Facebook – log in or sign up");
 
 			/*
-			 * CAUTION : For successful running you have to enter valid credentials for login. 
-			 * The credentials taken to login from property file won't work
-			 * But it will work for sign up as given in the next test method		
+			 * CAUTION : For successful running you have to enter valid credentials for login
+			 * The credentials given in property file for login won't work
+			 * But they will work for sign up as shown in the next test method		
 			 */
 			
 			Assert.assertTrue(loginPage.getUsernameTF().isDisplayed(), "Username textfield is not displayed");
@@ -53,6 +48,8 @@ public class FacebookTest extends BaseClass {
 			actualTitle = driver.getTitle();
 			Assert.assertTrue(actualTitle.contains("Facebook"), "Page title is incorrect");
 			
+			//Handling notification pop up on home page using Robot class from java.awt package
+			
 			Robot robot = new Robot();
 			robot.keyPress(KeyEvent.VK_TAB);
 			robot.keyRelease(KeyEvent.VK_TAB);
@@ -61,7 +58,7 @@ public class FacebookTest extends BaseClass {
 
 		} catch (Exception e) {
 			Assert.fail("Test failed due to exception: " + e.getMessage());
-			 e.printStackTrace();
+			// e.printStackTrace();
 		}
 	}
 	
@@ -69,24 +66,23 @@ public class FacebookTest extends BaseClass {
 	@Test(priority = 0, groups = { "smoke", "functional" }, invocationCount = 2)
 	public void checkWhetherTheUserIsAbleToRegisterInFacebookSignUpPage() {
 		
-//		Use property file.
+        //Use property file.
 		
 		try {
 
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 			FacebookSignUpPage signUpPage = new FacebookSignUpPage(driver);
 
 			driver.get(fileUtils.getPropertyKeyValue("signup_url"));
 
-			wait.until(ExpectedConditions.titleIs(fileUtils.getPropertyKeyValue("title")));
+			webdriverUtils.waitForATitle(driver, fileUtils.getPropertyKeyValue("title"));
 			Assert.assertEquals(driver.getTitle(), fileUtils.getPropertyKeyValue("title"));
 
 			signUpPage.setFirstName(fileUtils.getPropertyKeyValue("firstName"));
 			signUpPage.setLastName(fileUtils.getPropertyKeyValue("lastName"));
 
-			signUpPage.setMobileOrEmail(fileUtils.getPropertyKeyValue("username"));
-			wait.until(ExpectedConditions.visibilityOf(signUpPage.getMobileOrEmailConfirmInput()));
-			signUpPage.setMobileOrEmailConfirmInput(fileUtils.getPropertyKeyValue("username"));
+			signUpPage.setMobileOrEmail(fileUtils.getPropertyKeyValue("username"));	
+			webdriverUtils.waitTillElementToBeVisible(driver, signUpPage.getMobileOrEmailConfirmInput());
+			signUpPage.setMobileOrEmailConfirmInput(fileUtils.getPropertyKeyValue("username"));	
 			signUpPage.setPassword(fileUtils.getPropertyKeyValue("password"));
 
 			signUpPage.setBirthDay(fileUtils.getPropertyKeyValue("birthDay"));
@@ -118,8 +114,13 @@ public class FacebookTest extends BaseClass {
 			webdriverUtils.waitForATitle(driver, "Facebook – log in or sign up");
 			Assert.assertEquals(driver.getTitle(), "Facebook – log in or sign up");
 
-			actions.sendKeys(driver.switchTo().activeElement()).sendKeys("wrong_email@gmail.com").sendKeys(Keys.TAB)
-					.sendKeys("wrongpassword").sendKeys(Keys.ENTER).perform();
+			actions.sendKeys(driver.switchTo().activeElement())
+			.sendKeys("wrong_email@gmail.com")
+			.sendKeys(Keys.TAB)
+			.sendKeys("wrongpassword")
+			.sendKeys(Keys.ENTER)
+			.build()
+			.perform();
 
 			Assert.assertTrue(loginPage.getErrorMessage().isDisplayed(),
 					"Error message isn't displayed; log in happened unexpectely");
@@ -132,7 +133,7 @@ public class FacebookTest extends BaseClass {
 	}
 
 	@Test(priority = 3, groups = "functional")
-	public void writeAScriptToLoginWithEmptyCredentialsInFacebookLoginPage() throws InterruptedException {
+	public void writeAScriptToLoginWithEmptyCredentialsInFacebookLoginPage() {
 
 		try {
 
@@ -148,6 +149,7 @@ public class FacebookTest extends BaseClass {
 			actions.click(loginPage.getSubmitButton()).perform();
 
 			// Script to capture error text and color of error text
+			
 			String errorMsgText = loginPage.getErrorMessage().getText();
 			System.out.println("errorMsgText= " + errorMsgText);
 
@@ -162,9 +164,49 @@ public class FacebookTest extends BaseClass {
 			Assert.fail("Test failed due to exception: " + e.getMessage());
 		}
 	}
+	
+	@Test(priority = 3, groups = "functional")
+	public void scriptToPerformASetOfActions() {
+		
+	    /* Below line sends some text to field by converting it to upper case, then
+		   double click the text so that it will select all, then do right click */
+		
+		try {
+			
+			FacebookLoginPage loginPage = new FacebookLoginPage(driver);
+
+			driver.get(fileUtils.getPropertyKeyValue("url"));
+			
+			webdriverUtils.waitForATitle(driver, "Facebook – log in or sign up");
+			Assert.assertEquals(driver.getTitle(), "Facebook – log in or sign up");
+
+			Actions actions = new Actions(driver);
+
+			actions.moveToElement(loginPage.getUsernameTF())
+			.click()
+			.keyDown(loginPage.getUsernameTF(), Keys.SHIFT)
+			.sendKeys("Rohit")
+			.keyUp(loginPage.getUsernameTF(), Keys.SHIFT)
+			.doubleClick(loginPage.getUsernameTF())
+			.contextClick(loginPage.getUsernameTF())
+			.build()
+			.perform();
+			
+		}
+
+		catch (Exception e) {
+			//e.printStackTrace();
+			Assert.fail("Test failed due to exception: " + e.getMessage());
+		}
+	}
 
 	@Test(priority = 2, groups = "functional", enabled = false)
 	public void WriteAScriptToTestForgotPassword() {
+		
+		/*
+		 * CAUTION : For successful running you have to enter valid credentials for login. 
+		 * The credentials taken to login from property file won't work		
+		 */
 
 		try {
 
@@ -176,11 +218,6 @@ public class FacebookTest extends BaseClass {
 
 			String pageTitle = driver.getTitle();
 			Assert.assertTrue(pageTitle.contains("Forgotten Password | Can't Log In"), "Page title is incorrect");
-			
-			/*
-			 * CAUTION : For successful running you have to enter valid credentials for login. 
-			 * The credentials taken to login from property file won't work		
-			 */
 			
 			actions.sendKeys(driver.switchTo().activeElement(), fileUtils.getPropertyKeyValue("username"))
 					.sendKeys(Keys.ENTER).perform();
@@ -195,6 +232,9 @@ public class FacebookTest extends BaseClass {
 			// e.printStackTrace();
 			Assert.fail("Test failed due to exception: " + e.getMessage());
 		}
+		
 	}
+	
+	
 
 }

@@ -34,7 +34,6 @@ public class BaseClass {
 
 		driver.manage().window().maximize();
 		webdriverUtils.implicitWait(driver);
-		driver.get(fileUtils.getPropertyKeyValue("url"));
 	}
 
 	@AfterMethod

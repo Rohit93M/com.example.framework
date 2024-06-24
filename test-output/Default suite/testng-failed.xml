@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="sampleform.WebFormTest">
+      <class name="facebook.FacebookTest">
         <methods>
+          <include name="checkWhetherTheUserIsAbleToRegisterInFacebookSignUpPage"/>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="checkWhetherUserIsAbleToFillTheForm"/>
         </methods>
-      </class> <!-- sampleform.WebFormTest -->
+      </class> <!-- facebook.FacebookTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

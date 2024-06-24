@@ -26,6 +26,8 @@ public class TrelloAppTest extends BaseClass {
 
 			TrelloWelcomePage welcomePage = new TrelloWelcomePage(driver);
 			TrelloLoginPage loginPage = new TrelloLoginPage(driver);
+			
+			driver.get(fileUtils.getPropertyKeyValue("url"));
 
 			webdriverUtils.waitForATitle(driver, "Manage Your Team’s Projects From Anywhere | Trello");
 			Assert.assertEquals(driver.getTitle(), "Manage Your Team’s Projects From Anywhere | Trello",
@@ -68,6 +70,8 @@ public class TrelloAppTest extends BaseClass {
 			TrelloBoardsPage boardsPage = new TrelloBoardsPage(driver);
 			TrelloTopicPage topicPage = new TrelloTopicPage(driver);
 			TrelloWorkspacePage workspacePage = new TrelloWorkspacePage(driver);
+			
+			driver.get(fileUtils.getPropertyKeyValue("url"));
 
 			webdriverUtils.waitForATitle(driver, "Manage Your Team’s Projects From Anywhere | Trello");
 			Assert.assertEquals(driver.getTitle(), "Manage Your Team’s Projects From Anywhere | Trello",
@@ -133,6 +137,8 @@ public class TrelloAppTest extends BaseClass {
 			TrelloBoardsPage boardsPage = new TrelloBoardsPage(driver);
 			TrelloTopicPage topicPage = new TrelloTopicPage(driver);
 			TrelloLogoutPage logoutPage = new TrelloLogoutPage(driver);
+			
+			driver.get(fileUtils.getPropertyKeyValue("url"));
 
 			webdriverUtils.waitForATitle(driver, "Manage Your Team’s Projects From Anywhere | Trello");
 			Assert.assertEquals(driver.getTitle(), "Manage Your Team’s Projects From Anywhere | Trello",
@@ -224,6 +230,8 @@ public class TrelloAppTest extends BaseClass {
 			TrelloTopicPage topicPage = new TrelloTopicPage(driver);
 			TrelloLogoutPage logoutPage = new TrelloLogoutPage(driver);
 
+			driver.get(fileUtils.getPropertyKeyValue("url"));
+			
 			webdriverUtils.waitForATitle(driver, "Manage Your Team’s Projects From Anywhere | Trello");
 			Assert.assertEquals(driver.getTitle(), "Manage Your Team’s Projects From Anywhere | Trello",
 					"Welcome page title does not match");
